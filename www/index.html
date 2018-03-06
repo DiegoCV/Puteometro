@@ -1,108 +1,134 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="w3mobile.css">
-<script type="text/javascript" src="jquery-3.3.1.js"></script>
-<body>
-
-<header class="w3-container">
-  <h1>Puteometro</h1>
-</header>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="w3.css" rel="stylesheet"/>
+    <link href="slider.css" rel="stylesheet"/>
+    <link href="w3mobile.css" rel="stylesheet"/>
+    <script src="jquery-3.3.1.js" type="text/javascript">
+    </script>
+    <body>
+        <header class="w3-container">
+            <h1>
+                Puteometro
+            </h1>
+        </header>
+        <div class="w3-container">
+            <h2>
+                FactorPutería=Interacción*Provocación
+            </h2>
+        </div>
+        <button class="w3-button w3-teal w3-block w3-left-align" onclick="myFunction('Demo1')">
+            Interaccion
+        </button>
+        <div class="w3-hide" id="Demo1">
+            <div class="w3-container">
+                <label id="al">
+                    Area Restriegue
+                </label>
+                <div class="slidecontainer">
+                    <input class="slider" id="a" max="100" min="0" type="range" value="0"/>
+                </div>
+                <label id="bl">
+                    DistMax
+                </label>
+                <div class="slidecontainer">
+                    <input class="slider" id="b" max="100" min="0" type="range" value="0"/>
+                </div>
+                <label>
+                    DisPiso
+                </label>
+                <input class="w3-input" id="c" max="5" min="0" type="number" value="0">
+                    <label>
+                        FactorIntensión
+                    </label>
+                    <input class="w3-input" id="d" max="1" min="0" type="number" value="0">
+                    </input>
+                </input>
+            </div>
+        </div>
+    </body>
+</html>
+<button class="w3-button w3-khaki w3-block w3-left-align" onclick="myFunction('Demo2')">
+    Provocacion
+</button>
+<div class="w3-hide" id="Demo2">
+    <div class="w3-container">
+        <label>
+            Area Cuerpo
+        </label>
+        <input class="w3-input " id="e" max="5" min="1" type="number" value="1">
+            <label>
+                Area Ropa
+            </label>
+            <input class="w3-input" id="f" max="5" min="1" type="number" value="1">
+            </input>
+        </input>
+    </div>
+</div>
+<button class="w3-button w3-block" onclick="calcularFactor()">
+    Button
+</button>
 <div class="w3-container">
-	<h2>
-		FactorPutería=Interacción*Provocación
-	</h2>
+    <h2>
+        ¿Qué tan buena es la puta? = físico*putería
+    </h2>
 </div>
-
-<button onclick="myFunction('Demo1')" class="w3-button w3-teal w3-block w3-left-align">
-Interaccion</button>
-
-<div id="Demo1" class="w3-hide">
-	<div class="w3-container">
-<label>Area Restriegue</label>
-<input class="w3-input " type="number" id="a" min="1" max="5" value="1">
-
-<label>DistMax</label>
-<input class="w3-input" type="number" id="b" min="1" max="5" value="1">
-
-<label>DisPiso</label>
-<input class="w3-input" type="number" id="c" min="1" max="5" value="1">
-
-<label>FactorIntensión</label>
-<input class="w3-input" type="number" id="d" min="1" max="5" value="1">
-
+<button class="w3-button w3-teal w3-block w3-left-align" onclick="myFunction('Demo3')">
+    Fisico
+</button>
+<div class="w3-hide" id="Demo3">
+    <div class="w3-container">
+        <label>
+            densidadCulo
+        </label>
+        <input class="w3-input " id="g" max="5" min="1" type="number" value="1">
+            <label>
+                densidadTetas
+            </label>
+            <input class="w3-input" id="i" max="5" min="1" type="number" value="1">
+                <label>
+                    volHuecoEspalda
+                </label>
+                <input class="w3-input" id="k" max="5" min="0.1" type="number" value="1">
+                </input>
+            </input>
+        </input>
+    </div>
 </div>
+<button class="w3-button w3-khaki w3-block w3-left-align" onclick="myFunction('Demo4')">
+    Poncho
+</button>
+<div class="w3-hide" id="Demo4">
+    <div class="w3-container">
+        <label>
+            izqC
+        </label>
+        <input class="w3-input " id="ic" max="5" min="0.1" type="number" value="1">
+            <label>
+                derC
+            </label>
+            <input class="w3-input " id="dc" max="5" min="0.1" type="number" value="1">
+                <label>
+                    izqT
+                </label>
+                <input class="w3-input" id="it" max="5" min="0.1" type="number" value="1">
+                    <label>
+                        derT
+                    </label>
+                    <input class="w3-input" id="dt" max="5" min="0.1" type="number" value="1">
+                    </input>
+                </input>
+            </input>
+        </input>
+    </div>
 </div>
-
-<button onclick="myFunction('Demo2')" class="w3-button w3-khaki w3-block w3-left-align" >
-Provocacion</button>
-
-<div id="Demo2" class="w3-hide">
-	<div class="w3-container">
-<label>Area Cuerpo</label>
-<input class="w3-input " type="number" id="e" min="1" max="5" value="1">
-
-<label>Area Ropa</label>
-<input class="w3-input" type="number" id="f" min="1" max="5" value="1">
-
-</div>
-</div>
-
-<button onclick="calcularFactor()" class="w3-button w3-block">Button</button>
-
-
-<div class="w3-container">
-	<h2>
-		¿Qué tan buena es la puta? = físico*putería
-	</h2>
-</div>
-
-<button onclick="myFunction('Demo3')" class="w3-button w3-teal w3-block w3-left-align">
-Fisico</button>
-
-<div id="Demo3" class="w3-hide">
-	<div class="w3-container">
-<label>densidadCulo</label>
-<input class="w3-input " type="number" id="g" min="1" max="5" value="1">
-
-<label>densidadTetas</label>
-<input class="w3-input" type="number" id="i" min="1" max="5" value="1">
-
-<label>volHuecoEspalda</label>
-<input class="w3-input" type="number" id="k" min="1" max="5" value="1">
-
-</div>
-</div>
-
-
-<button onclick="myFunction('Demo4')" class="w3-button w3-khaki w3-block w3-left-align">
-Poncho</button>
-
-<div id="Demo4" class="w3-hide">
-	<div class="w3-container">
-<label>izqC</label>
-<input class="w3-input " type="number" id="ic" min="1" max="5" value="1">
-
-<label>derC</label>
-<input class="w3-input " type="number" id="dc" min="1" max="5" value="1">
-
-<label>izqT</label>
-<input class="w3-input" type="number" id="it" min="1" max="5" value="1">
-
-<label>derT</label>
-<input class="w3-input" type="number" id="dt" min="1" max="5" value="1">
-
-</div>
-</div>
-
-<button onclick="nivelBuena()" class="w3-button w3-block">Button</button>
+<button class="w3-button w3-block" onclick="nivelBuena()">
+    Button
+</button>
 <script type="text/javascript">
-
-	var factor = 1;
-	var buena = 1;
-
-	function myFunction(id) {
+    var factor = 1;
+    var buena = 1;
+    function myFunction(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
@@ -110,38 +136,28 @@ Poncho</button>
         x.className = x.className.replace(" w3-show", "");
     }
 }
-
-	function calcularFactor(){
-
-		var arearestriegue = $('#a').val();
-		var distMax = $('#b').val();
-		var disPiso = $('#c').val();
-		var factorIntension = $('#d').val();
-		var areaCuerpo = $('#e').val();
-		var areaRopa = $('#f').val();
-
-		var interaccion = (arearestriegue/(distMax-disPiso))*factorIntension;
-		var provocacion = areaCuerpo-areaRopa;
-
-		factor = interaccion*provocacion;
-
-		alert("El factor total el: "+factor);
-	}
-
-	function nivelBuena() {
-		var densidadCulo = $('#g').val();
-		var ponchoCulo = $('#ic').val() / $('#dc').val() ;
-		var densidadTetas = $('#i').val();
-		var ponchoTetas = $('#it').val() / $('#dt').val();
-		var volHuecoEspalda = $('#k').val();
-		var fisico=(densidadCulo*ponchoCulo)+(densidadTetas*ponchoTetas) - (1/volHuecoEspalda);
-
-		 buena = fisico * factor;
-
-		alert("El nivel de buena es:"+buena);
-	}
+    function calcularFactor(){
+        var arearestriegue = $('#a').val();
+        var distMax = $('#b').val();
+        var disPiso = $('#c').val();
+        var factorIntension = $('#d').val();
+        var areaCuerpo = $('#e').val();
+        var areaRopa = $('#f').val();
+        var interaccion = (arearestriegue/distMax-(disPiso))*factorIntension;
+        var provocacion = areaCuerpo-areaRopa;
+        factor = interaccion*provocacion;
+        alert("El factor total es: "+factor);
+    }
+    function nivelBuena() {
+        var densidadCulo = $('#g').val();
+        var ponchoCulo = $('#ic').val() / $('#dc').val() ;
+        var densidadTetas = $('#i').val();
+        var ponchoTetas = $('#it').val() / $('#dt').val();
+        var volHuecoEspalda = $('#k').val();
+        var fisico=(densidadCulo*ponchoCulo)+(densidadTetas*ponchoTetas) - (1/volHuecoEspalda);
+         buena = fisico * factor;
+        alert("El nivel de buena es:"+buena);
+    }
 </script>
-
-
-</body>
-</html>
+<script src="funciones.js" type="text/javascript">
+</script>
